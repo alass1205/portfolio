@@ -1,52 +1,18 @@
-# Backend Go
-backend/main
-backend/*.exe
+# Backend
 backend/.env
-backend/go.work
-backend/go.work.sum
+backend/main
 
-# Frontend Node.js
+# Frontend  
 frontend/node_modules/
 frontend/.next/
 frontend/.env.local
 frontend/.env.production
-frontend/out/
-frontend/npm-debug.log*
-frontend/yarn-debug.log*
-frontend/package-lock.json
 
 # Logs
 *.log
-logs/
 
-# Database et migrations sensibles (garder les templates)
-*.db
-*.sqlite
-
-# Environnements
-.env
-.env.local
-.env.production
-.env.staging
-
-# IDE
+# IDE et OS
 .vscode/
 .idea/
-*.swp
-*.swo
-
-# OS
 .DS_Store
 Thumbs.db
-
-# Docker overrides
-docker-compose.override.yml
-
-# Temporary
-*.tmp
-*.temp
-/tmp/
-
-# Build artifacts
-dist/
-build/
