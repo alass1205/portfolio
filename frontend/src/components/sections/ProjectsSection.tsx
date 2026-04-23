@@ -132,7 +132,7 @@ const ProjectsSection = () => {
 
                     {/* Technologies */}
                     <div className="flex flex-wrap gap-2 mb-6">
-                      {project.technologies.slice(0, 3).map((tech) => (
+                      {(project.technologies ?? []).slice(0, 3).map((tech) => (
                         <span
                           key={tech}
                           className="px-3 py-1 bg-white/10 rounded-full text-xs font-medium text-gray-300"
@@ -140,9 +140,9 @@ const ProjectsSection = () => {
                           {tech}
                         </span>
                       ))}
-                      {project.technologies.length > 3 && (
+                      {(project.technologies ?? []).length > 3 && (
                         <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-medium text-gray-400">
-                          +{project.technologies.length - 3}
+                          +{(project.technologies ?? []).length - 3}
                         </span>
                       )}
                     </div>

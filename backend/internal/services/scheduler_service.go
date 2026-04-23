@@ -2,7 +2,6 @@ package services
 
 import (
     "database/sql"
-    "encoding/json"
     "log"
     "strings"
     "time"
@@ -108,7 +107,8 @@ func (s *SchedulerService) insertProject(repo GitHubRepo) bool {
     title = strings.Title(title)
     
     // Sérialiser technologies
-    techsJSON, err := json.Marshal(technologies)
+    techsPG := `{"` + strings.Join(technologies, `","`) + `"}`
+    var err error
     if err != nil {
         log.Printf("Erreur sérialisation technologies pour %s: %v", repo.Name, err)
         return false
@@ -123,7 +123,7 @@ func (s *SchedulerService) insertProject(repo GitHubRepo) bool {
         uuid.New(),
         title,
         description,
-        techsJSON,
+        techsPG,
         category,
         repo.HTMLURL,
         featured,

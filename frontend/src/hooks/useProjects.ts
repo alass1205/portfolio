@@ -24,7 +24,7 @@ export const useProjects = (category: ProjectCategory = 'all') => {
         const response = await axios.get<ApiResponse<Project[]>>(url)
         
         if (response.data.success) {
-          setProjects(response.data.data)
+          setProjects(response.data.data ?? [])
         } else {
           setError('Erreur lors du chargement des projets')
         }
